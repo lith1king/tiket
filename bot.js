@@ -4,7 +4,7 @@ var prefix = "-"
 var adminprefix = '-'
 
 client.on("message", (message) => {
-    /// ALPHA CODES
+    /// King Rewards
    if (message.content.startsWith("-new")) {     /// King Rewards
         const reason = message.content.split(" ").slice(1).join(" ");     /// King Rewards
         if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
