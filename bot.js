@@ -5,17 +5,17 @@ var adminprefix = '-'
 
 client.on("message", (message) => {
     /// ALPHA CODES
-   if (message.content.startsWith("#new")) {     /// ALPHA CODES
-        const reason = message.content.split(" ").slice(1).join(" ");     /// ALPHA CODES
+   if (message.content.startsWith("-new")) {     /// King Rewards
+        const reason = message.content.split(" ").slice(1).join(" ");     /// King Rewards
         if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
-        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
+        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// King Rewards
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Support Team");
             let role2 = message.guild.roles.find("name", "@everyone");
             c.overwritePermissions(role, {
                 SEND_MESSAGES: true,
                 READ_MESSAGES: true
-            });    /// ALPHA CODES
+            });    /// King Rewards
             c.overwritePermissions(role2, {
                 SEND_MESSAGES: false,
                 READ_MESSAGES: false
@@ -36,19 +36,19 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("#close")) {
+  if (message.content.startsWith("-close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
-       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب #confirm`)
+       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب -confirm`)
            .then((m) => {
-               message.channel.awaitMessages(response => response.content === '#confirm', {
+               message.channel.awaitMessages(response => response.content === '-confirm', {
                        max: 1,
                        time: 10000,
                        errors: ['time'],
-                   })    /// Last Codes
+                   })    /// King Rewards
                    .then((collected) => {
                        message.channel.delete();
-                   })    /// ALPHA CODES
+                   })    /// King Rewards
                    .catch(() => {
                        m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
                            m2.delete();
@@ -59,7 +59,7 @@ client.on("message", (message) => {
  
 });
 
-const developers = ["507997411101114379"]
+const developers = ["526864822348808193"]
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
